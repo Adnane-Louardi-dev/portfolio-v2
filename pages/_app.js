@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
-import Cookie from "js-cookie";
 
 const LightTheme = {
   backgroundprimary: "#ffffff",
