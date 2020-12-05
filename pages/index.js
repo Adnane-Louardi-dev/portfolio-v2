@@ -57,7 +57,7 @@ export default function Home(props) {
               </a>
             </div>
             <div className="profile">
-              <img src="profile.jpg" />
+              <img src="./profile.jpg" />
               <a href="mailto:snehilwebber@gmail.com">snehilwebber@gmail.com</a>
             </div>
             <div className="details">
