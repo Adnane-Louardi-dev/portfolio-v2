@@ -32,7 +32,7 @@ export default function Home(props) {
       </Head>
       <Main>
         <Left visibility={visible}>
-          <section class="sidebar">
+          <section>
             <h1 onClick={ToggleTheme}>Hello, World!</h1>
             <h1>I'm Snehil.</h1>
             <p className="bio">
@@ -47,13 +47,19 @@ export default function Home(props) {
             </p>
             <div className="headings">
               <a id="link-skills" href="#skills">
-                01&nbsp;&nbsp;&nbsp;&nbsp;───────&nbsp;&nbsp;&nbsp;SKILLS
+                <span>01&nbsp;</span>
+                <span className="divider"></span>
+                <span>SKILLS</span>
               </a>
               <a id="link-experience" href="#experience">
-                02&nbsp;&nbsp;&nbsp;───&nbsp;&nbsp;&nbsp;EXPERIENCE
+                <span>02</span>
+                <span className="divider"></span>
+                <span>EXPERIENCE</span>
               </a>
               <a id="link-projects" href="#projects">
-                03&nbsp;&nbsp;&nbsp;────&nbsp;&nbsp;&nbsp;PROJECTS
+                <span>03</span>
+                <span className="divider"></span>
+                <span>PROJECTS</span>
               </a>
             </div>
             <div className="profile">
@@ -93,7 +99,7 @@ export default function Home(props) {
           </section>
         </Left>
         <Right>
-          SKILLS
+          <h1 id="skills">Skills</h1>
           <VisibilitySensor
             partialVisibility
             onChange={(isVisible) => {
@@ -106,7 +112,10 @@ export default function Home(props) {
               bottom: windowHeight / 3,
             }}
           >
-            <section id="skills">
+            <section>
+              <article>
+                <h2></h2>
+              </article>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in
               lacinia ligula. Aliquam facilisis congue tortor eget cursus. Donec
               tempor ultrices nunc at egestas. Curabitur eu odio eget ex cursus
@@ -151,7 +160,8 @@ export default function Home(props) {
               sollicitudin.
             </section>
           </VisibilitySensor>
-          EXP
+
+          <h1 id="experience">Experience</h1>
           <VisibilitySensor
             partialVisibility
             onChange={(isVisible) => {
@@ -164,7 +174,7 @@ export default function Home(props) {
               bottom: windowHeight / 3,
             }}
           >
-            <section id="experience">
+            <section>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in
               lacinia ligula. Aliquam facilisis congue tortor eget cursus. Donec
               tempor ultrices nunc at egestas. Curabitur eu odio eget ex cursus
@@ -209,7 +219,8 @@ export default function Home(props) {
               sollicitudin.
             </section>
           </VisibilitySensor>
-          PROJECTS
+
+          <h1 id="projects">Projects</h1>
           <VisibilitySensor
             partialVisibility
             onChange={(isVisible) => {
@@ -222,7 +233,7 @@ export default function Home(props) {
               bottom: windowHeight / 3,
             }}
           >
-            <section id="projects">
+            <section>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in
               lacinia ligula. Aliquam facilisis congue tortor eget cursus. Donec
               tempor ultrices nunc at egestas. Curabitur eu odio eget ex cursus
@@ -273,6 +284,18 @@ export default function Home(props) {
   );
 }
 
+const Right = styled.div`
+  /* background-color: red; */
+
+  h1 {
+    padding: 4rem 0 1.5rem 0;
+    font-weight: 300;
+    margin: 0;
+    font-size: 26pt;
+    line-height: 26pt;
+  }
+`;
+
 const Main = styled.main`
   display: grid;
   max-width: 64rem;
@@ -285,8 +308,6 @@ const Main = styled.main`
 
 const Page = styled.div`
   background-color: ${({ theme }) => theme.backgroundPrimary};
-  transition: background-color 0.5s ease, color 0.5s ease;
-
   a {
     color: ${({ theme }) => theme.fontPrimary};
     text-decoration: underline;
@@ -345,10 +366,23 @@ const Left = styled.div`
   .headings {
     margin-bottom: 1rem;
     font-size: 11pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     a {
-      display: block;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-items: flex-start;
       margin-bottom: 1rem;
       text-decoration: none;
+
+      .divider {
+        margin: 0 1rem;
+        transition: width 300ms ease;
+        border-bottom: 1px solid;
+      }
     }
 
     @media screen and (max-width: 47rem) {
@@ -367,7 +401,7 @@ const Left = styled.div`
     img {
       height: 3.75rem;
       width: 3.75rem;
-      object-fit: cover;
+      object-fit: scale-down;
       border-radius: 50%;
       margin-right: 1.5rem;
     }
@@ -395,23 +429,25 @@ const Left = styled.div`
   #link-skills {
     color: ${({ theme, visibility }) =>
       visibility.skills ? theme.fontPrimary : theme.fontSecondary};
+    .divider {
+      width: ${({ visibility }) => (visibility.skills ? "3.5rem" : "2rem")};
+    }
   }
 
   #link-experience {
     color: ${({ theme, visibility }) =>
       visibility.experience ? theme.fontPrimary : theme.fontSecondary};
+    .divider {
+      width: ${({ visibility }) => (visibility.experience ? "3.5rem" : "2rem")};
+    }
   }
 
   #link-projects {
     color: ${({ theme, visibility }) =>
       visibility.projects ? theme.fontPrimary : theme.fontSecondary};
-  }
-`;
 
-const Right = styled.div`
-  /* background-color: red; */
-  margin-top: 4rem;
-
-  section {
+    .divider {
+      width: ${({ visibility }) => (visibility.projects ? "3.5rem" : "2rem")};
+    }
   }
 `;
