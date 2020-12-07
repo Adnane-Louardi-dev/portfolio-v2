@@ -135,6 +135,7 @@ export default function Home(props) {
                 <ul>
                   {props.skills.map((skill) => (
                     <a
+                      key={skill.name}
                       href="#"
                       id={skill.name}
                       onClick={(e) => {

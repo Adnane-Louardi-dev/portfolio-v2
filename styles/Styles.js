@@ -19,8 +19,6 @@ export const Skills = styled.section`
 `;
 
 export const Right = styled.div`
-  /* background-color: red; */
-
   h1 {
     padding: 4rem 0 1.5rem 0;
     font-weight: 300;
@@ -41,7 +39,6 @@ export const Main = styled.main`
 `;
 
 export const Page = styled.div`
-  background-color: ${({ theme }) => theme.backgroundPrimary};
   a {
     color: ${({ theme }) => theme.fontPrimary};
     text-decoration: underline;

@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { useEffect, useState } from "react";
 
 const LightTheme = {
@@ -21,6 +21,12 @@ export const themes = {
   dark: DarkTheme,
 };
 
+const GlobalStyle = createGlobalStyle`
+  body{
+    background-color: ${({ theme }) => theme.backgroundPrimary};
+  }
+`;
+
 function MyApp({ Component, pageProps }) {
   // const [theme, setTheme] = useState(
   //   JSON.parse(localStorage.getItem("theme")) || "dark"
@@ -35,9 +41,12 @@ function MyApp({ Component, pageProps }) {
     localStorage.setItem("theme", theme);
   }, [theme]);
   return (
-    <ThemeProvider theme={themes[theme]}>
-      <Component theme={theme} setTheme={setTheme} {...pageProps} />
-    </ThemeProvider>
+    <>
+      <GlobalStyle theme={themes[theme]} />
+      <ThemeProvider theme={themes[theme]}>
+        <Component theme={theme} setTheme={setTheme} {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }
 
