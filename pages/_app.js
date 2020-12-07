@@ -16,7 +16,7 @@ const DarkTheme = {
   fontSecondary: "#A5A5A7",
 };
 
-const themes = {
+export const themes = {
   light: LightTheme,
   dark: DarkTheme,
 };

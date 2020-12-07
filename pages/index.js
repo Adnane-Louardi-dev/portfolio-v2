@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import styled from "styled-components";
 import VisibilitySensor from "react-visibility-sensor";
 
 import { FaGithub, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
+
+import { Left, Right, Link, Main, Skills, Page } from "../styles/Styles";
+import { themes } from "./_app";
+import { getAllSkills } from "../lib/skills";
 
 export default function Home(props) {
   const [visible, setVisible] = useState({
@@ -15,9 +18,19 @@ export default function Home(props) {
 
   const [windowHeight, setWindowHeight] = useState(0);
 
-  useEffect(() => {
-    setWindowHeight(window.innerHeight);
-  }, []);
+  if (typeof window !== "undefined") {
+    useEffect(() => {
+      setWindowHeight(window.innerHeight);
+    }, [window.innerHeight]);
+
+    useEffect(() => {
+      eval(
+        `try {TagCanvas.Start('myCanvas', '', {textColour: '${
+          themes[props.theme].fontPrimary
+        }',outlineColour: '#0000', imageMode: "both", imagePosition:"top", initial: [0.3,-0.1], fadeIn: 3000, wheelZoom: false, pinchZoom: true, shuffleTags: true, frontSelect: true, textHeight: 18, reverse: true, depth: 0.8,maxSpeed: 0.04, minSpeed: 0.02});} catch(e) {document.getElementById('myCanvasContainer').style.display = 'none';}`
+      );
+    }, [props.theme]);
+  }
 
   const ToggleTheme = () => {
     if (props.theme === "light") props.setTheme("dark");
@@ -29,6 +42,7 @@ export default function Home(props) {
       <Head>
         <title>Snehil</title>
         <link rel="icon" href="/favicon.ico" />
+        <script src="/js/NotAtAllInteresting.js"></script>
       </Head>
       <Main>
         <Left visibility={visible}>
@@ -112,53 +126,39 @@ export default function Home(props) {
               bottom: windowHeight / 3,
             }}
           >
-            <section>
-              <article>
-                <h2></h2>
-              </article>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in
-              lacinia ligula. Aliquam facilisis congue tortor eget cursus. Donec
-              tempor ultrices nunc at egestas. Curabitur eu odio eget ex cursus
-              sodales ac quis nunc. In auctor, metus ac vehicula tempor, nunc
-              urna posuere eros, sit amet viverra ex mi in leo. Donec at magna
-              purus. In sodales ipsum id risus euismod, lacinia blandit lectus
-              commodo. Vivamus sodales et eros eget venenatis. Class aptent
-              taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos. Nullam non lacus non justo sodales pharetra.
-              Aliquam varius id dolor quis sollicitudin. Aliquam consequat velit
-              vitae tellus efficitur, eget pellentesque erat volutpat. Nulla
-              vehicula condimentum quam, id cursus metus. Sed nec enim quis diam
-              ornare fermentum placerat ac turpis. Praesent tincidunt laoreet
-              metus quis rutrum. Aenean efficitur sapien pharetra, faucibus
-              sapien in, eleifend diam. Nam posuere tortor ligula, at tincidunt
-              nulla cursus ut. Praesent condimentum, lorem eu pharetra pretium,
-              arcu est tempus eros, pretium varius ante sem quis augue. Aliquam
-              erat volutpat. Vivamus lorem mi, eleifend nec nibh et, consectetur
-              dictum mauris. Interdum et malesuada fames ac ante ipsum primis in
-              faucibus. Ut tempor felis sit amet ante dapibus imperdiet. Etiam
-              odio turpis, tristique a ultrices eu, placerat id nulla. Nullam
-              porta lorem eros, sit amet ultricies felis porta ut. Duis
-              scelerisque purus rhoncus luctus pretium. Vestibulum lobortis,
-              sapien eget congue consectetur, purus ipsum elementum dolor, at
-              varius est purus sit amet leo. Integer ut scelerisque magna.
-              Vivamus sollicitudin pharetra aliquam. In mattis metus non ex
-              facilisis, a condimentum enim semper. Proin sodales turpis eu
-              ipsum luctus scelerisque. Quisque dictum sodales dolor ac cursus.
-              Maecenas a quam non tortor vehicula lacinia non vel nisi. Praesent
-              non laoreet erat, nec bibendum nisl. Curabitur congue mollis est,
-              et vehicula lacus dapibus vitae. Curabitur ut massa porttitor,
-              dignissim lorem eget, auctor ex. Integer fringilla, leo ac mollis
-              viverra, est diam consectetur elit, sed dapibus dui dui quis eros.
-              Duis hendrerit leo vel nisl vehicula, quis interdum massa
-              imperdiet. Mauris mi erat, facilisis at ultrices quis, eleifend
-              sit amet ante. Etiam blandit viverra neque, in egestas metus.
-              Maecenas vitae congue augue. Integer bibendum in massa et iaculis.
-              Phasellus ut cursus ligula. Fusce erat arcu, luctus et sem non,
-              rhoncus aliquam felis. Pellentesque nec tellus bibendum, fermentum
-              urna et, volutpat nibh. Aliquam sagittis quam dictum ipsum
-              imperdiet malesuada. Pellentesque sagittis ac lectus et
-              sollicitudin.
-            </section>
+            <Skills>
+              <canvas width="720" height="720" id="myCanvas">
+                <p>
+                  Anything in here will be replaced on browsers that support the
+                  canvas element
+                </p>
+                <ul>
+                  {props.skills.map((skill) => (
+                    <a
+                      href="#"
+                      id={skill.name}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        eval(
+                          `TagCanvas.TagToFront("myCanvas", {id: "${skill.name}", active: 1});`
+                        );
+                      }}
+                    >
+                      <li>
+                        <img
+                          width="60"
+                          height="60"
+                          src={`/images/svg/${skill.image}${
+                            props.theme === "light" ? "-light" : ""
+                          }.svg`}
+                        />
+                        {skill.name}
+                      </li>
+                    </a>
+                  ))}
+                </ul>
+              </canvas>
+            </Skills>
           </VisibilitySensor>
 
           <h1 id="experience">Experience</h1>
@@ -284,170 +284,12 @@ export default function Home(props) {
   );
 }
 
-const Right = styled.div`
-  /* background-color: red; */
+export async function getStaticProps() {
+  const skills = getAllSkills();
 
-  h1 {
-    padding: 4rem 0 1.5rem 0;
-    font-weight: 300;
-    margin: 0;
-    font-size: 26pt;
-    line-height: 26pt;
-  }
-`;
-
-const Main = styled.main`
-  display: grid;
-  max-width: 64rem;
-  margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  color: ${({ theme }) => theme.fontPrimary};
-  min-height: 100vh;
-  padding: 0 1rem;
-`;
-
-const Page = styled.div`
-  background-color: ${({ theme }) => theme.backgroundPrimary};
-  a {
-    color: ${({ theme }) => theme.fontPrimary};
-    text-decoration: underline;
-  }
-`;
-
-const Link = styled.a`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-right: 2.75rem;
-  margin-bottom: 1rem;
-  text-decoration: none !important;
-
-  span {
-    margin-left: 1rem;
-    margin-right: 0.5rem;
-  }
-`;
-
-const Left = styled.div`
-  section {
-    margin: 0 1rem;
-    position: sticky;
-    top: 0rem;
-    padding-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-
-    @media screen and (min-width: 47rem) {
-      height: 100vh;
-    }
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    @media screen and (max-width: 47rem) {
-      padding-top: 6rem;
-    }
-  }
-  h1 {
-    font-size: 36pt;
-    margin: 0 0 2rem 0;
-    line-height: 36pt;
-  }
-
-  .bio {
-    margin: 0 2.5rem 2rem 0;
-    color: ${({ theme }) => theme.fontSecondary};
-    font-size: 11pt;
-  }
-  .headings {
-    margin-bottom: 1rem;
-    font-size: 11pt;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    a {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-items: flex-start;
-      margin-bottom: 1rem;
-      text-decoration: none;
-
-      .divider {
-        margin: 0 1rem;
-        transition: width 300ms ease;
-        border-bottom: 1px solid;
-      }
-    }
-
-    @media screen and (max-width: 47rem) {
-      display: none;
-    }
-  }
-
-  .profile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 2rem;
-    font-size: 11pt;
-
-    img {
-      height: 3.75rem;
-      width: 3.75rem;
-      object-fit: scale-down;
-      border-radius: 50%;
-      margin-right: 1.5rem;
-    }
-
-    a {
-      color: ${({ theme }) => theme.fontSecondary};
-      text-decoration: none;
-      transition: color 300ms ease;
-      &:hover {
-        color: ${({ theme }) => theme.fontPrimary};
-      }
-    }
-  }
-
-  .details {
-    font-weight: 300;
-    font-size: 11pt;
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-  #link-skills {
-    color: ${({ theme, visibility }) =>
-      visibility.skills ? theme.fontPrimary : theme.fontSecondary};
-    .divider {
-      width: ${({ visibility }) => (visibility.skills ? "3.5rem" : "2rem")};
-    }
-  }
-
-  #link-experience {
-    color: ${({ theme, visibility }) =>
-      visibility.experience ? theme.fontPrimary : theme.fontSecondary};
-    .divider {
-      width: ${({ visibility }) => (visibility.experience ? "3.5rem" : "2rem")};
-    }
-  }
-
-  #link-projects {
-    color: ${({ theme, visibility }) =>
-      visibility.projects ? theme.fontPrimary : theme.fontSecondary};
-
-    .divider {
-      width: ${({ visibility }) => (visibility.projects ? "3.5rem" : "2rem")};
-    }
-  }
-`;
+  return {
+    props: {
+      skills: [...skills.skills],
+    },
+  };
+}
