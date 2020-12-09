@@ -77,4 +77,7 @@ skills:
 
   - name: "C#"
     image: "csharp"
+
+  - name: "Azure"
+    image: "azure"
 ---

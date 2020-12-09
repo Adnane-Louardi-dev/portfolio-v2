@@ -1,5 +1,62 @@
 import styled from "styled-components";
 
+export const ExperienceCard = styled.article`
+  padding: 2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.25),
+    0 0.02125em 0.06125em rgba(0, 0, 0, 0.25);
+
+  header {
+    text-transform: uppercase;
+    font-size: 10pt;
+  }
+
+  div {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    img {
+      height: 28pt;
+    }
+  }
+
+  h2 {
+    margin: 0 0 0 0.5rem;
+    line-height: 28pt;
+    font-weight: 500;
+    font-size: 18pt;
+  }
+
+  ul {
+    /* list-style: none; */
+    padding-left: 1rem;
+    margin: 0;
+    font-size: 11pt;
+    color: ${({ theme }) => theme.fontSecondary};
+  }
+
+  a {
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 18px;
+    margin: 2rem 2rem 0 0;
+  }
+
+  /* ul li::before {
+    content: "-";
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  } */
+`;
+
 export const Skills = styled.section`
   position: relative;
   width: 100%;
@@ -19,6 +76,10 @@ export const Skills = styled.section`
 `;
 
 export const Right = styled.div`
+  flex: 1;
+  @media screen and (max-width: 750px) {
+    flex: initial;
+  }
   h1 {
     padding: 4rem 0 1.5rem 0;
     font-weight: 300;
@@ -29,13 +90,19 @@ export const Right = styled.div`
 `;
 
 export const Main = styled.main`
-  display: grid;
+  display: flex;
+  flex-direction: row;
+
   max-width: 64rem;
   margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+
   color: ${({ theme }) => theme.fontPrimary};
   min-height: 100vh;
   padding: 0 1rem;
+
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+  }
 `;
 
 export const Page = styled.div`
@@ -61,8 +128,13 @@ export const Link = styled.a`
 `;
 
 export const Left = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 750px) {
+    flex: initial;
+  }
   section {
     margin: 0 1rem;
     position: sticky;

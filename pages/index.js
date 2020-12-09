@@ -5,9 +5,18 @@ import VisibilitySensor from "react-visibility-sensor";
 import { FaGithub, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
-import { Left, Right, Link, Main, Skills, Page } from "../styles/Styles";
+import {
+  Left,
+  Right,
+  Link,
+  Main,
+  Skills,
+  Page,
+  ExperienceCard,
+} from "../styles/Styles";
 import { themes } from "./_app";
 import { getAllSkills } from "../lib/skills";
+import ThemeButton from "../components/ThemeButton";
 
 export default function Home(props) {
   const [visible, setVisible] = useState({
@@ -44,10 +53,11 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
         <script src="/js/NotAtAllInteresting.js"></script>
       </Head>
+      <ThemeButton toggleTheme={ToggleTheme} theme={props.theme} />
       <Main>
         <Left visibility={visible}>
           <section>
-            <h1 onClick={ToggleTheme}>Hello, World!</h1>
+            <h1>Hello, World!</h1>
             <h1>I'm Snehil.</h1>
             <p className="bio">
               Electronics and Communication Engineering Undergraduate from{" "}
@@ -176,48 +186,39 @@ export default function Home(props) {
             }}
           >
             <section>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in
-              lacinia ligula. Aliquam facilisis congue tortor eget cursus. Donec
-              tempor ultrices nunc at egestas. Curabitur eu odio eget ex cursus
-              sodales ac quis nunc. In auctor, metus ac vehicula tempor, nunc
-              urna posuere eros, sit amet viverra ex mi in leo. Donec at magna
-              purus. In sodales ipsum id risus euismod, lacinia blandit lectus
-              commodo. Vivamus sodales et eros eget venenatis. Class aptent
-              taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos. Nullam non lacus non justo sodales pharetra.
-              Aliquam varius id dolor quis sollicitudin. Aliquam consequat velit
-              vitae tellus efficitur, eget pellentesque erat volutpat. Nulla
-              vehicula condimentum quam, id cursus metus. Sed nec enim quis diam
-              ornare fermentum placerat ac turpis. Praesent tincidunt laoreet
-              metus quis rutrum. Aenean efficitur sapien pharetra, faucibus
-              sapien in, eleifend diam. Nam posuere tortor ligula, at tincidunt
-              nulla cursus ut. Praesent condimentum, lorem eu pharetra pretium,
-              arcu est tempus eros, pretium varius ante sem quis augue. Aliquam
-              erat volutpat. Vivamus lorem mi, eleifend nec nibh et, consectetur
-              dictum mauris. Interdum et malesuada fames ac ante ipsum primis in
-              faucibus. Ut tempor felis sit amet ante dapibus imperdiet. Etiam
-              odio turpis, tristique a ultrices eu, placerat id nulla. Nullam
-              porta lorem eros, sit amet ultricies felis porta ut. Duis
-              scelerisque purus rhoncus luctus pretium. Vestibulum lobortis,
-              sapien eget congue consectetur, purus ipsum elementum dolor, at
-              varius est purus sit amet leo. Integer ut scelerisque magna.
-              Vivamus sollicitudin pharetra aliquam. In mattis metus non ex
-              facilisis, a condimentum enim semper. Proin sodales turpis eu
-              ipsum luctus scelerisque. Quisque dictum sodales dolor ac cursus.
-              Maecenas a quam non tortor vehicula lacinia non vel nisi. Praesent
-              non laoreet erat, nec bibendum nisl. Curabitur congue mollis est,
-              et vehicula lacus dapibus vitae. Curabitur ut massa porttitor,
-              dignissim lorem eget, auctor ex. Integer fringilla, leo ac mollis
-              viverra, est diam consectetur elit, sed dapibus dui dui quis eros.
-              Duis hendrerit leo vel nisl vehicula, quis interdum massa
-              imperdiet. Mauris mi erat, facilisis at ultrices quis, eleifend
-              sit amet ante. Etiam blandit viverra neque, in egestas metus.
-              Maecenas vitae congue augue. Integer bibendum in massa et iaculis.
-              Phasellus ut cursus ligula. Fusce erat arcu, luctus et sem non,
-              rhoncus aliquam felis. Pellentesque nec tellus bibendum, fermentum
-              urna et, volutpat nibh. Aliquam sagittis quam dictum ipsum
-              imperdiet malesuada. Pellentesque sagittis ac lectus et
-              sollicitudin.
+              <ExperienceCard>
+                <header>College Club</header>
+                <div>
+                  <img src="/images/experience/ntl.png" />
+                  <h2>Next Tech Lab, SRMIST</h2>
+                </div>
+                <ul>
+                  <li>
+                    Worked on Game development projects as an Associate of
+                    Pausch Lab.
+                  </li>
+                  <li>Explored the field of IoT as a Member of Tesla Lab.</li>
+                </ul>
+                <a href="https://www.nexttechlab.io/">
+                  <HiOutlineExternalLink size={18} />
+                </a>
+              </ExperienceCard>
+              <ExperienceCard>
+                <header>College Club</header>
+                <div>
+                  <img src="/images/experience/kzilla.png" />
+                  <h2>SRMKZILLA, SRMIST</h2>
+                </div>
+                <ul>
+                  <li>
+                    Member of the technical team. Currently working on several
+                    app ideas in collaboration of other team members.
+                  </li>
+                </ul>
+                <a href="https://srmkzilla.net/" target="_blank">
+                  <HiOutlineExternalLink size={18} />
+                </a>
+              </ExperienceCard>
             </section>
           </VisibilitySensor>
 

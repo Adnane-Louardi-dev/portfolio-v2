@@ -1,0 +1,47 @@
+import styled from "styled-components";
+
+import { FaMoon, FaSun } from "react-icons/fa";
+
+const Button = styled.span`
+  .corner {
+    fill: ${({ theme }) => theme.backgroundSecondary};
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+    transition: fill 500ms ease;
+  }
+
+  .icon {
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+    z-index: 10;
+    margin: 0.75rem 0.75rem 0 0;
+  }
+`;
+
+const ThemeButton = (props) => {
+  return (
+    <Button
+      href="https://github.com/01Abhinav/ASCIIndex"
+      target="_blank"
+      onClick={props.toggleTheme}
+      aria-label="Toggle Theme"
+    >
+      {props.theme === "dark" && (
+        <FaMoon className="icon" color="#F4E34F" size={24} />
+      )}
+      {props.theme === "light" && (
+        <FaSun className="icon" color="#F79B08" size={24} />
+      )}
+
+      <svg width="80" height="80" aria-hidden="true" className="corner">
+        <polyline points="0,0 80,80 80,0 " />
+      </svg>
+    </Button>
+  );
+};
+
+export default ThemeButton;

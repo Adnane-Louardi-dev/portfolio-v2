@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 const LightTheme = {
   backgroundprimary: "#ffffff",
@@ -24,6 +25,7 @@ export const themes = {
 const GlobalStyle = createGlobalStyle`
   body{
     background-color: ${({ theme }) => theme.backgroundPrimary};
+    position: relative;
   }
 `;
 
@@ -42,6 +44,9 @@ function MyApp({ Component, pageProps }) {
   }, [theme]);
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <GlobalStyle theme={themes[theme]} />
       <ThemeProvider theme={themes[theme]}>
         <Component theme={theme} setTheme={setTheme} {...pageProps} />
