@@ -11,11 +11,15 @@ export const ExperienceCard = styled.article`
 
   header {
     text-transform: uppercase;
+    margin-bottom: 0.5rem;
     font-size: 10pt;
   }
-
+  .date {
+    color: ${({ theme }) => theme.fontSecondary};
+    text-transform: initial;
+  }
   div {
-    margin: 0.5rem 0;
+    margin-bottom: 0.5rem;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -39,6 +43,14 @@ export const ExperienceCard = styled.article`
     margin: 0;
     font-size: 11pt;
     color: ${({ theme }) => theme.fontSecondary};
+  }
+
+  ul li {
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   a {

@@ -16,6 +16,7 @@ import {
 } from "../styles/Styles";
 import { themes } from "./_app";
 import { getAllSkills } from "../lib/skills";
+import { getAllRoles } from "../lib/experience";
 import ThemeButton from "../components/ThemeButton";
 
 export default function Home(props) {
@@ -186,39 +187,24 @@ export default function Home(props) {
             }}
           >
             <section>
-              <ExperienceCard>
-                <header>College Club</header>
-                <div>
-                  <img src="/images/experience/ntl.png" />
-                  <h2>Next Tech Lab, SRMIST</h2>
-                </div>
-                <ul>
-                  <li>
-                    Worked on Game development projects as an Associate of
-                    Pausch Lab.
-                  </li>
-                  <li>Explored the field of IoT as a Member of Tesla Lab.</li>
-                </ul>
-                <a href="https://www.nexttechlab.io/">
-                  <HiOutlineExternalLink size={18} />
-                </a>
-              </ExperienceCard>
-              <ExperienceCard>
-                <header>College Club</header>
-                <div>
-                  <img src="/images/experience/kzilla.png" />
-                  <h2>SRMKZILLA, SRMIST</h2>
-                </div>
-                <ul>
-                  <li>
-                    Member of the technical team. Currently working on several
-                    app ideas in collaboration of other team members.
-                  </li>
-                </ul>
-                <a href="https://srmkzilla.net/" target="_blank">
-                  <HiOutlineExternalLink size={18} />
-                </a>
-              </ExperienceCard>
+              {props.roles.map((role) => (
+                <ExperienceCard key={role.name}>
+                  <header>{role.type}</header>
+                  <div>
+                    <img src={`/images/experience/${role.image}`} />
+                    <h2>{role.name}</h2>
+                  </div>
+                  <header class="date">{role.duration}</header>
+                  <ul>
+                    {role.description.map((sentence) => (
+                      <li>{sentence}</li>
+                    ))}
+                  </ul>
+                  <a href={role.link} target="_blank">
+                    <HiOutlineExternalLink size={18} />
+                  </a>
+                </ExperienceCard>
+              ))}
             </section>
           </VisibilitySensor>
 
@@ -288,10 +274,12 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const skills = getAllSkills();
+  const experience = getAllRoles();
 
   return {
     props: {
       skills: [...skills.skills],
+      roles: [...experience.roles],
     },
   };
 }
