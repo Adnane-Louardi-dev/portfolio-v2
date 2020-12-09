@@ -4,6 +4,7 @@ import VisibilitySensor from "react-visibility-sensor";
 
 import { FaGithub, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import { GiTechnoHeart } from "react-icons/gi";
 
 import {
   Left,
@@ -194,10 +195,10 @@ export default function Home(props) {
                     <img src={`/images/experience/${role.image}`} />
                     <h2>{role.name}</h2>
                   </div>
-                  <header class="date">{role.duration}</header>
+                  <header className="date">{role.duration}</header>
                   <ul>
                     {role.description.map((sentence) => (
-                      <li>{sentence}</li>
+                      <li key={sentence}>{sentence}</li>
                     ))}
                   </ul>
                   <a href={role.link} target="_blank">
@@ -221,53 +222,15 @@ export default function Home(props) {
               bottom: windowHeight / 3,
             }}
           >
-            <section>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in
-              lacinia ligula. Aliquam facilisis congue tortor eget cursus. Donec
-              tempor ultrices nunc at egestas. Curabitur eu odio eget ex cursus
-              sodales ac quis nunc. In auctor, metus ac vehicula tempor, nunc
-              urna posuere eros, sit amet viverra ex mi in leo. Donec at magna
-              purus. In sodales ipsum id risus euismod, lacinia blandit lectus
-              commodo. Vivamus sodales et eros eget venenatis. Class aptent
-              taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos. Nullam non lacus non justo sodales pharetra.
-              Aliquam varius id dolor quis sollicitudin. Aliquam consequat velit
-              vitae tellus efficitur, eget pellentesque erat volutpat. Nulla
-              vehicula condimentum quam, id cursus metus. Sed nec enim quis diam
-              ornare fermentum placerat ac turpis. Praesent tincidunt laoreet
-              metus quis rutrum. Aenean efficitur sapien pharetra, faucibus
-              sapien in, eleifend diam. Nam posuere tortor ligula, at tincidunt
-              nulla cursus ut. Praesent condimentum, lorem eu pharetra pretium,
-              arcu est tempus eros, pretium varius ante sem quis augue. Aliquam
-              erat volutpat. Vivamus lorem mi, eleifend nec nibh et, consectetur
-              dictum mauris. Interdum et malesuada fames ac ante ipsum primis in
-              faucibus. Ut tempor felis sit amet ante dapibus imperdiet. Etiam
-              odio turpis, tristique a ultrices eu, placerat id nulla. Nullam
-              porta lorem eros, sit amet ultricies felis porta ut. Duis
-              scelerisque purus rhoncus luctus pretium. Vestibulum lobortis,
-              sapien eget congue consectetur, purus ipsum elementum dolor, at
-              varius est purus sit amet leo. Integer ut scelerisque magna.
-              Vivamus sollicitudin pharetra aliquam. In mattis metus non ex
-              facilisis, a condimentum enim semper. Proin sodales turpis eu
-              ipsum luctus scelerisque. Quisque dictum sodales dolor ac cursus.
-              Maecenas a quam non tortor vehicula lacinia non vel nisi. Praesent
-              non laoreet erat, nec bibendum nisl. Curabitur congue mollis est,
-              et vehicula lacus dapibus vitae. Curabitur ut massa porttitor,
-              dignissim lorem eget, auctor ex. Integer fringilla, leo ac mollis
-              viverra, est diam consectetur elit, sed dapibus dui dui quis eros.
-              Duis hendrerit leo vel nisl vehicula, quis interdum massa
-              imperdiet. Mauris mi erat, facilisis at ultrices quis, eleifend
-              sit amet ante. Etiam blandit viverra neque, in egestas metus.
-              Maecenas vitae congue augue. Integer bibendum in massa et iaculis.
-              Phasellus ut cursus ligula. Fusce erat arcu, luctus et sem non,
-              rhoncus aliquam felis. Pellentesque nec tellus bibendum, fermentum
-              urna et, volutpat nibh. Aliquam sagittis quam dictum ipsum
-              imperdiet malesuada. Pellentesque sagittis ac lectus et
-              sollicitudin.
-            </section>
+            <section>WORK IN PROGRESS 🚧🚧🚧</section>
           </VisibilitySensor>
         </Right>
       </Main>
+      <footer>
+        Made with&nbsp;
+        <GiTechnoHeart className="heart" size={22} />
+        &nbsp;by Snehil
+      </footer>
     </Page>
   );
 }

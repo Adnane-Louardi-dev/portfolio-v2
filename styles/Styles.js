@@ -9,6 +9,10 @@ export const ExperienceCard = styled.article`
   box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.25),
     0 0.02125em 0.06125em rgba(0, 0, 0, 0.25);
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   header {
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -106,9 +110,9 @@ export const Main = styled.main`
   flex-direction: row;
 
   max-width: 64rem;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem auto;
 
-  color: ${({ theme }) => theme.fontPrimary};
+  /* color: ${({ theme }) => theme.fontPrimary}; */
   min-height: 100vh;
   padding: 0 1rem;
 
@@ -118,9 +122,24 @@ export const Main = styled.main`
 `;
 
 export const Page = styled.div`
+  color: ${({ theme }) => theme.fontPrimary};
+
   a {
     color: ${({ theme }) => theme.fontPrimary};
     text-decoration: underline;
+  }
+
+  footer {
+    font-size: 14pt;
+    color: ${({ theme }) => theme.fontSecondary};
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .heart {
+      color: ${({ theme }) => theme.fontPrimary};
+    }
   }
 `;
 
