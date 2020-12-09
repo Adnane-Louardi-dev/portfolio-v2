@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 const Button = styled.span`
+  cursor: pointer;
   .corner {
     fill: ${({ theme }) => theme.backgroundSecondary};
     position: absolute;
@@ -10,8 +11,19 @@ const Button = styled.span`
     border: 0;
     right: 0;
     transition: fill 500ms ease;
-  }
 
+    &:hover {
+      filter: opacity(0.8);
+    }
+  }
+  @keyframes zoom {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
   .icon {
     position: absolute;
     top: 0;
@@ -19,6 +31,7 @@ const Button = styled.span`
     right: 0;
     z-index: 10;
     margin: 0.75rem 0.75rem 0 0;
+    animation: zoom 500ms ease;
   }
 `;
 
