@@ -2,9 +2,16 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import VisibilitySensor from "react-visibility-sensor";
 
-import { FaGithub, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaYoutube,
+  FaGhost,
+} from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { GiTechnoHeart } from "react-icons/gi";
+import * as FC from "react-icons/fc";
 
 import {
   Left,
@@ -233,8 +240,20 @@ export default function Home(props) {
               {props.projects.map((project) => (
                 <ProjectCard>
                   <div className="container">
-                    <header className="platform">{project.platform}</header>
+                    <header className="platform">
+                      {project.platform === "web" && <FC.FcGlobe size={24} />}
+                      {project.platform === "android" && (
+                        <FC.FcAndroidOs size={26} />
+                      )}
+                      {project.platform === "mobile" && (
+                        <FC.FcPhoneAndroid size={24} />
+                      )}
+                      {project.platform === "game" && (
+                        <FaGhost color="#FF3100" size={22} />
+                      )}
+                    </header>
                     <header className="stack">{project.stack}</header>
+                    <p>{project.description}</p>
                     <div className="spacer"></div>
                     <div className="links">
                       <a href={project.source}>

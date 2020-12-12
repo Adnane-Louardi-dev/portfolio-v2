@@ -33,6 +33,21 @@ export const ProjectCard = styled.article`
       font-size: 10pt;
     }
 
+    p {
+      margin-top: 1rem;
+      font-size: 12pt;
+      padding-right: 3.5rem;
+      display: initial;
+
+      @media screen and (min-width: 529px) and (max-width: 749px) {
+        display: none;
+      }
+
+      @media screen and (min-width: 916px) {
+        display: none;
+      }
+    }
+
     .spacer {
       flex: 1;
     }
@@ -40,6 +55,7 @@ export const ProjectCard = styled.article`
     .footer {
       font-size: 18pt;
       line-height: 18pt;
+      padding-right: 2rem;
     }
 
     .links {
@@ -53,7 +69,6 @@ export const ProjectCard = styled.article`
       right: 0;
       bottom: 0;
       transform-origin: 95% -50%;
-      margin-right: 1.25rem;
 
       a {
         text-decoration: none;
@@ -61,10 +76,14 @@ export const ProjectCard = styled.article`
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
-        margin-right: 0.5rem;
-
         color: ${({ theme }) => theme.fontSecondary};
         transition: color 300ms ease;
+
+        margin-left: 1.25rem;
+
+        svg {
+          margin-left: 0.5rem;
+        }
 
         &:hover {
           color: ${({ theme }) => theme.fontPrimary};
@@ -179,7 +198,7 @@ export const Skills = styled.section`
 
 export const Right = styled.div`
   flex: 1;
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 749px) {
     flex: initial;
   }
   h1 {
@@ -218,7 +237,7 @@ export const Main = styled.main`
   min-height: 100vh;
   padding: 0 1rem;
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 749px) {
     flex-direction: column;
   }
 `;
@@ -265,7 +284,7 @@ export const Left = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 749px) {
     flex: initial;
   }
   section {
@@ -279,7 +298,7 @@ export const Left = styled.div`
     align-items: flex-start;
     justify-content: center;
 
-    @media screen and (min-width: 47rem) {
+    @media screen and (min-width: 749px) {
       height: 100vh;
     }
 
@@ -287,7 +306,7 @@ export const Left = styled.div`
       display: none;
     }
 
-    @media screen and (max-width: 47rem) {
+    @media screen and (max-width: 749px) {
       padding-top: 6rem;
     }
   }
@@ -324,7 +343,7 @@ export const Left = styled.div`
       }
     }
 
-    @media screen and (max-width: 47rem) {
+    @media screen and (max-width: 749px) {
       display: none;
     }
   }
