@@ -1,5 +1,88 @@
 import styled from "styled-components";
 
+export const ProjectCard = styled.article`
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: ${({ theme }) => theme.backgroundSecondary};
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  position: relative;
+
+  .container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .platform {
+      color: ${({ theme }) => theme.fontPrimary};
+      text-transform: uppercase;
+    }
+
+    .stack {
+      color: ${({ theme }) => theme.fontSecondary};
+    }
+
+    header {
+      font-size: 10pt;
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    .footer {
+      font-size: 18pt;
+      line-height: 18pt;
+    }
+
+    .links {
+      font-size: 10pt;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      position: absolute;
+      transform: rotate(90deg);
+      right: 0;
+      bottom: 0;
+      transform-origin: 95% -50%;
+      gap: 1.25rem;
+
+      a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+
+        color: ${({ theme }) => theme.fontSecondary};
+        transition: color 300ms ease;
+
+        &:hover {
+          color: ${({ theme }) => theme.fontPrimary};
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+  &:before {
+    display: block;
+    content: "";
+    padding: 50%;
+  }
+`;
+
 export const ExperienceCard = styled.article`
   padding: 2rem;
   margin-bottom: 0.5rem;
@@ -63,6 +146,9 @@ export const ExperienceCard = styled.article`
     top: 0;
     line-height: 18px;
     margin: 2rem 2rem 0 0;
+    svg {
+      stroke: ${({ theme }) => theme.fontSecondary};
+    }
   }
 
   /* ul li::before {
@@ -102,6 +188,22 @@ export const Right = styled.div`
     margin: 0;
     font-size: 26pt;
     line-height: 26pt;
+  }
+
+  .my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: -0.5rem; /* gutter size offset */
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    padding-left: 0.5rem; /* gutter size */
+    background-clip: padding-box;
+
+    &:nth-of-type(2) {
+      margin-top: 3rem;
+    }
   }
 `;
 

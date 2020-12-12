@@ -14,11 +14,14 @@ import {
   Skills,
   Page,
   ExperienceCard,
+  ProjectCard,
 } from "../styles/Styles";
 import { themes } from "./_app";
 import { getAllSkills } from "../lib/skills";
 import { getAllRoles } from "../lib/experience";
 import ThemeButton from "../components/ThemeButton";
+import Masonry from "react-masonry-css";
+import { getAllProjects } from "../lib/projects";
 
 export default function Home(props) {
   const [visible, setVisible] = useState({
@@ -222,7 +225,30 @@ export default function Home(props) {
               bottom: windowHeight / 3,
             }}
           >
-            <section>WORK IN PROGRESS 🚧🚧🚧</section>
+            <Masonry
+              breakpointCols={{ default: 2, 916: 1, 749: 2, 529: 1 }}
+              className="my-masonry-grid"
+              columnClassName="my-masonry-grid_column"
+            >
+              {props.projects.map((project) => (
+                <ProjectCard>
+                  <div className="container">
+                    <header className="platform">{project.platform}</header>
+                    <header className="stack">{project.stack}</header>
+                    <div className="spacer"></div>
+                    <div className="links">
+                      <a href={project.source}>
+                        Source <HiOutlineExternalLink />
+                      </a>
+                      <a href={project.demo}>
+                        Visit <HiOutlineExternalLink />
+                      </a>
+                    </div>
+                    <div className="footer">{project.name}</div>
+                  </div>
+                </ProjectCard>
+              ))}
+            </Masonry>
           </VisibilitySensor>
         </Right>
       </Main>
@@ -239,10 +265,13 @@ export async function getStaticProps() {
   const skills = getAllSkills();
   const experience = getAllRoles();
 
+  const projects = getAllProjects();
+
   return {
     props: {
       skills: [...skills.skills],
       roles: [...experience.roles],
+      projects: [...projects.projects],
     },
   };
 }
