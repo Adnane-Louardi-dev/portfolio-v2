@@ -53,7 +53,7 @@ export const ProjectCard = styled.article`
       right: 0;
       bottom: 0;
       transform-origin: 95% -50%;
-      gap: 1.25rem;
+      margin-right: 1.25rem;
 
       a {
         text-decoration: none;
@@ -61,7 +61,7 @@ export const ProjectCard = styled.article`
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
-        gap: 0.5rem;
+        margin-right: 0.5rem;
 
         color: ${({ theme }) => theme.fontSecondary};
         transition: color 300ms ease;
