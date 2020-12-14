@@ -60,11 +60,6 @@ export default function Home(props) {
 
   return (
     <Page>
-      <Head>
-        <title>Snehil</title>
-        <link rel="icon" href="/favicon.ico" />
-        <script src="/js/NotAtAllInteresting.js"></script>
-      </Head>
       <ThemeButton toggleTheme={ToggleTheme} theme={props.theme} />
       <Main>
         <Left visibility={visible}>
@@ -238,7 +233,7 @@ export default function Home(props) {
               columnClassName="my-masonry-grid_column"
             >
               {props.projects.map((project) => (
-                <ProjectCard>
+                <ProjectCard key={project.name}>
                   <div className="container">
                     <header className="platform">
                       {project.platform === "web" && <FC.FcGlobe size={24} />}

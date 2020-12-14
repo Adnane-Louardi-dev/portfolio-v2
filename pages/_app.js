@@ -45,7 +45,39 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Snehil</title>
+        <link rel="icon" href="/favicon.ico" />
+        <script src="/js/NotAtAllInteresting.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Primary Meta Tags */}
+        <title>Snehil's Portfolio</title>
+        <meta name="title" content="Snehil's Portfolio" />
+        <meta
+          name="description"
+          content="Snehil is a passionate programmer who's on a journey to become a full-stack web developer at a FAANG company. He's an Electronics and Communication undergraduate from SRMIST, India. He also likes playing/making games and watching anime and hates talking about himself in the third person."
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://snehil.tech/" />
+        <meta property="og:title" content="Snehil's Portfolio" />
+        <meta
+          property="og:description"
+          content="Snehil is a passionate programmer who's on a journey to become a full-stack web developer at a FAANG company. He's an Electronics and Communication undergraduate from SRMIST, India. He also likes playing/making games and watching anime and hates talking about himself in the third person."
+        />
+        <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://snehil.tech/" />
+        <meta property="twitter:title" content="Snehil's Portfolio" />
+        <meta
+          property="twitter:description"
+          content="Snehil is a passionate programmer who's on a journey to become a full-stack web developer at a FAANG company. He's an Electronics and Communication undergraduate from SRMIST, India. He also likes playing/making games and watching anime and hates talking about himself in the third person."
+        />
+        <meta property="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
       </Head>
       <GlobalStyle theme={themes[theme]} />
       <ThemeProvider theme={themes[theme]}>
