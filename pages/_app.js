@@ -66,7 +66,12 @@ function MyApp({ Component, pageProps }) {
           property="og:description"
           content="Snehil is a passionate programmer who's on a journey to become a full-stack web developer at a FAANG company. He's an Electronics and Communication undergraduate from SRMIST, India. He also likes playing/making games and watching anime and hates talking about himself in the third person."
         />
-        <meta property="og:image" content="https://snehil.tech/og-image.jpg" />
+        <meta property="og:image" content="http://snehil.tech/og-image.jpg" />
+        <meta
+          property="og:image:secure_url"
+          content="https://snehil.tech/og-image.jpg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
@@ -78,9 +83,9 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="twitter:image"
-          content="https://snehil.tech/og-image.jpg"
+          content="http://snehil.tech/og-image.jpg"
         />
-        <link rel="apple-touch-icon" href="https://snehil.tech/logo192.png" />
+        <link rel="apple-touch-icon" href="http://snehil.tech/logo192.png" />
       </Head>
       <GlobalStyle theme={themes[theme]} />
       <ThemeProvider theme={themes[theme]}>
