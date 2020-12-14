@@ -66,9 +66,14 @@ function MyApp({ Component, pageProps }) {
           property="og:description"
           content="Snehil is a passionate programmer who's on a journey to become a full-stack web developer at a FAANG company. He's an Electronics and Communication undergraduate from SRMIST, India. He also likes playing/making games and watching anime and hates talking about himself in the third person."
         />
-        <meta property="og:image" content="http://snehil.tech/og-image.jpg" />
+        <meta
+          property="og:image"
+          itemprop="image"
+          content="http://snehil.tech/og-image.jpg"
+        />
         <meta
           property="og:image:secure_url"
+          itemprop="image"
           content="https://snehil.tech/og-image.jpg"
         />
         <meta property="og:image:type" content="image/jpeg" />
