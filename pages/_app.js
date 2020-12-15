@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:image"
-          itemprop="image"
+          itemProp="image"
           content="http://snehil.tech/og-image.jpg"
         />
         <meta

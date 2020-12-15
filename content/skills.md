@@ -80,4 +80,7 @@ skills:
 
   - name: "Azure"
     image: "azure"
+
+  - name: "Next.js"
+    image: "nextjs"
 ---

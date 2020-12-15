@@ -196,8 +196,8 @@ export default function Home(props) {
           >
             <section>
               {props.roles.map((role) => (
-                <Fade bottom fraction={0.4}>
-                  <ExperienceCard key={role.name}>
+                <Fade bottom fraction={0.4} key={role.name}>
+                  <ExperienceCard>
                     <header>{role.type}</header>
                     <div>
                       <img src={`/images/experience/${role.image}`} />
@@ -237,8 +237,8 @@ export default function Home(props) {
               columnClassName="my-masonry-grid_column"
             >
               {props.projects.map((project) => (
-                <Flip left fraction={0.4}>
-                  <ProjectCard key={project.name}>
+                <Flip left fraction={0.4} key={project.name}>
+                  <ProjectCard>
                     <div className="container">
                       <header className="platform">
                         {project.platform === "web" && <FcGlobe size={24} />}
