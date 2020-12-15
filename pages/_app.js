@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:image:secure_url"
-          itemprop="image"
+          itemProp="image"
           content="https://snehil.tech/og-image.jpg"
         />
         <meta property="og:image:type" content="image/jpeg" />
