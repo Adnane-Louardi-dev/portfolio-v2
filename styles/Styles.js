@@ -111,10 +111,6 @@ export const ExperienceCard = styled.article`
   box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.25),
     0 0.02125em 0.06125em rgba(0, 0, 0, 0.25);
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   header {
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -222,6 +218,12 @@ export const Right = styled.div`
 
     &:nth-of-type(2) {
       margin-top: 3rem;
+    }
+  }
+
+  .react-reveal:last-child {
+    article {
+      margin-bottom: 0;
     }
   }
 `;

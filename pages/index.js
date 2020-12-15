@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
 import VisibilitySensor from "react-visibility-sensor";
 
 import {
@@ -11,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { GiTechnoHeart } from "react-icons/gi";
-import * as FC from "react-icons/fc";
+import { FcAndroidOs, FcGlobe, FcPhoneAndroid } from "react-icons/fc";
 
 import {
   Left,
@@ -29,6 +28,9 @@ import { getAllRoles } from "../lib/experience";
 import ThemeButton from "../components/ThemeButton";
 import Masonry from "react-masonry-css";
 import { getAllProjects } from "../lib/projects";
+
+import Fade from "react-reveal/Fade";
+import Flip from "react-reveal/Flip";
 
 export default function Home(props) {
   const [visible, setVisible] = useState({
@@ -194,22 +196,24 @@ export default function Home(props) {
           >
             <section>
               {props.roles.map((role) => (
-                <ExperienceCard key={role.name}>
-                  <header>{role.type}</header>
-                  <div>
-                    <img src={`/images/experience/${role.image}`} />
-                    <h2>{role.name}</h2>
-                  </div>
-                  <header className="date">{role.duration}</header>
-                  <ul>
-                    {role.description.map((sentence) => (
-                      <li key={sentence}>{sentence}</li>
-                    ))}
-                  </ul>
-                  <a href={role.link} target="_blank">
-                    <HiOutlineExternalLink size={18} />
-                  </a>
-                </ExperienceCard>
+                <Fade bottom fraction={0.4}>
+                  <ExperienceCard key={role.name}>
+                    <header>{role.type}</header>
+                    <div>
+                      <img src={`/images/experience/${role.image}`} />
+                      <h2>{role.name}</h2>
+                    </div>
+                    <header className="date">{role.duration}</header>
+                    <ul>
+                      {role.description.map((sentence) => (
+                        <li key={sentence}>{sentence}</li>
+                      ))}
+                    </ul>
+                    <a href={role.link} target="_blank">
+                      <HiOutlineExternalLink size={18} />
+                    </a>
+                  </ExperienceCard>
+                </Fade>
               ))}
             </section>
           </VisibilitySensor>
@@ -233,34 +237,36 @@ export default function Home(props) {
               columnClassName="my-masonry-grid_column"
             >
               {props.projects.map((project) => (
-                <ProjectCard key={project.name}>
-                  <div className="container">
-                    <header className="platform">
-                      {project.platform === "web" && <FC.FcGlobe size={24} />}
-                      {project.platform === "android" && (
-                        <FC.FcAndroidOs size={26} />
-                      )}
-                      {project.platform === "mobile" && (
-                        <FC.FcPhoneAndroid size={24} />
-                      )}
-                      {project.platform === "game" && (
-                        <FaGhost color="#FF3100" size={22} />
-                      )}
-                    </header>
-                    <header className="stack">{project.stack}</header>
-                    <p>{project.description}</p>
-                    <div className="spacer"></div>
-                    <div className="links">
-                      <a href={project.source}>
-                        Source <HiOutlineExternalLink />
-                      </a>
-                      <a href={project.demo}>
-                        Visit <HiOutlineExternalLink />
-                      </a>
+                <Flip left fraction={0.4}>
+                  <ProjectCard key={project.name}>
+                    <div className="container">
+                      <header className="platform">
+                        {project.platform === "web" && <FcGlobe size={24} />}
+                        {project.platform === "android" && (
+                          <FcAndroidOs size={26} />
+                        )}
+                        {project.platform === "mobile" && (
+                          <FcPhoneAndroid size={24} />
+                        )}
+                        {project.platform === "game" && (
+                          <FaGhost color="#FF3100" size={22} />
+                        )}
+                      </header>
+                      <header className="stack">{project.stack}</header>
+                      <p>{project.description}</p>
+                      <div className="spacer"></div>
+                      <div className="links">
+                        <a href={project.source}>
+                          Source <HiOutlineExternalLink />
+                        </a>
+                        <a href={project.demo}>
+                          Visit <HiOutlineExternalLink />
+                        </a>
+                      </div>
+                      <div className="footer">{project.name}</div>
                     </div>
-                    <div className="footer">{project.name}</div>
-                  </div>
-                </ProjectCard>
+                  </ProjectCard>
+                </Flip>
               ))}
             </Masonry>
           </VisibilitySensor>
