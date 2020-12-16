@@ -256,12 +256,22 @@ export const Page = styled.div`
     font-size: 14pt;
     color: ${({ theme }) => theme.fontSecondary};
     margin-bottom: 1rem;
-    display: flex;
+    text-align: center;
+    /* display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     .heart {
       color: ${({ theme }) => theme.fontPrimary};
+      margin-bottom: -0.15rem;
+    }
+
+    a {
+      font-weight: normal;
+    }
+
+    span {
+      font-size: 11pt;
     }
   }
 `;
