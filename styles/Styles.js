@@ -77,7 +77,7 @@ export const ProjectCard = styled.article`
         align-items: center;
         justify-content: flex-start;
         color: ${({ theme }) => theme.fontSecondary};
-        transition: color 300ms ease;
+        transition: color 300ms ease, transform 300ms ease;
 
         margin-left: 1.25rem;
 
@@ -87,6 +87,7 @@ export const ProjectCard = styled.article`
 
         &:hover {
           color: ${({ theme }) => theme.fontPrimary};
+          transform: translateX(-8px);
         }
       }
     }
@@ -379,9 +380,10 @@ export const Left = styled.div`
     a {
       color: ${({ theme }) => theme.fontSecondary};
       text-decoration: none;
-      transition: color 300ms ease;
+      transition: color 300ms ease, transform 300ms ease;
       &:hover {
         color: ${({ theme }) => theme.fontPrimary};
+        transform: translateX(8px);
       }
     }
   }
