@@ -69,17 +69,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:image" content="https://snehil.tech/og-image.jpg" />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://snehil.tech/" />
-        <meta property="twitter:title" content="Snehil's Portfolio" />
-        <meta
-          property="twitter:description"
-          content="Snehil is a passionate programmer who's on a journey to become a full-stack web developer at a FAANG company. He's an Electronics and Communication undergraduate from SRMIST, India. He also likes playing/making games and watching anime and hates talking about himself in the third person."
-        />
-        <meta
-          property="twitter:image"
-          content="https://snehil.tech/og-image.jpg"
-        />
+        <meta property="twitter:card" content="summary" />
         <link rel="apple-touch-icon" href="http://snehil.tech/logo192.png" />
       </Head>
       <GlobalStyle theme={themes[theme]} />
