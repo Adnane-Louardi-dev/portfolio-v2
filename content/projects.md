@@ -1,7 +1,7 @@
 ---
 projects:
   - name: "Tesla Lab"
-    description: "A team and achievements showcase webiste built for my college club."
+    description: "A team and achievements showcase website built for my college club."
     platform: "web"
     stack: "React, Next.js, Markdown, Vercel, CSS‑modules"
     source: "https://github.com/SneakySensei/tesla-lab"
