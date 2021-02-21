@@ -1,5 +1,15 @@
 ---
 roles:
+  - name: "Software Intern at Shoopy"
+    type: "Internship"
+    image: "shoopy.png"
+    duration: "Dec 2020 - PRESENT"
+    link: "https://www.shoopy.in/"
+    description:
+      - "Collaborated with the core team to design and develop the shoopy web store, the customer side app."
+      - "Pioneered the development of go.shoopy.in, a fast UPI payment portal for customers."
+      - "Worked with other interns to accelerate the development of Shoopy desktop app, a seller-side dashboard for store management."
+
   - name: "SRMKZILLA, SRMIST"
     type: "College club"
     image: "kzilla.png"
