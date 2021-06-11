@@ -1,4 +1,3 @@
-import "../styles/globals.css";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { useEffect, useState } from "react";
 import Head from "next/head";
@@ -23,7 +22,22 @@ export const themes = {
 };
 
 const GlobalStyle = createGlobalStyle`
-  body{
+* {
+  box-sizing: border-box;
+  transition: background-color 500ms ease;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+html,body{
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
     background-color: ${({ theme }) => theme.backgroundPrimary};
     position: relative;
   }
@@ -36,7 +50,12 @@ function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    setTheme(localStorage.getItem("theme") || "dark");
+    setTheme(
+      localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme:light)").matches
+          ? "light"
+          : "dark")
+    );
   }, []);
 
   useEffect(() => {
@@ -71,6 +90,10 @@ function MyApp({ Component, pageProps }) {
         {/* Twitter */}
         <meta property="twitter:card" content="summary" />
         <link rel="apple-touch-icon" href="http://snehil.tech/logo192.png" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <GlobalStyle theme={themes[theme]} />
       <ThemeProvider theme={themes[theme]}>
