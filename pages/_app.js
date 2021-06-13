@@ -79,17 +79,17 @@ function MyApp({ Component, pageProps }) {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://snehil.tech/" />
+        <meta property="og:url" content="https://snehil.dev/" />
         <meta property="og:title" content="Snehil's Portfolio" />
         <meta
           property="og:description"
           content="Snehil is a passionate programmer who's on a journey to become a full-stack web developer at a FAANG company. He's an Electronics and Communication undergraduate from SRMIST, India. He also likes playing/making games and watching anime and hates talking about himself in the third person."
         />
-        <meta property="og:image" content="https://snehil.tech/og-image.jpg" />
+        <meta property="og:image" content="/og-image.jpg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary" />
-        <link rel="apple-touch-icon" href="http://snehil.tech/logo192.png" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
           rel="stylesheet"
