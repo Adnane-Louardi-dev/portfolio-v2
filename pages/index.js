@@ -49,7 +49,7 @@ export default function Home(props) {
 			eval(
 				`try {TagCanvas.Start('myCanvas', '', {textColour: '${
 					themes[props.theme].fontPrimary
-				}',outlineColour: '#0000', imageMode: "both", imagePosition:"top", initial: [0.3,-0.1], fadeIn: 3000, wheelZoom: false, pinchZoom: true, shuffleTags: true, frontSelect: true, textHeight: 18, reverse: true, depth: 0.8,maxSpeed: 0.04, minSpeed: 0.02});} catch(e) {document.getElementById('myCanvasContainer').style.display = 'none';}`
+				}',outlineColour: '#0000', imageMode: "both", imagePosition:"top", initial: [0.15,-0.05], fadeIn: 3000, wheelZoom: false, pinchZoom: true, shuffleTags: true, frontSelect: true, textHeight: 18, reverse: true, depth: 0.8,maxSpeed: 0.04, minSpeed: 0.02});} catch(e) {document.getElementById('myCanvasContainer').style.display = 'none';}`
 			);
 		}, [props.theme]);
 	}
@@ -96,7 +96,7 @@ export default function Home(props) {
 						</div>
 						<div className="profile">
 							<img src="/images/profile.jpg" />
-							<a href="mailto:snehilwebber@gmail.com">snehilwebber@gmail.com</a>
+							<a href="mailto:me@snehil.dev">me@snehil.dev</a>
 						</div>
 						<div className="details">
 							<Link href="https://github.com/sneakysensei" target="_blank">
@@ -255,12 +255,16 @@ export default function Home(props) {
 											<p>{project.description}</p>
 											<div className="spacer"></div>
 											<div className="links">
-												<a href={project.source}>
-													Source <HiOutlineExternalLink />
-												</a>
-												<a href={project.demo}>
-													Visit <HiOutlineExternalLink />
-												</a>
+												{project.source && (
+													<a href={project.source}>
+														Source <HiOutlineExternalLink />
+													</a>
+												)}
+												{project.demo && (
+													<a href={project.demo}>
+														Visit <HiOutlineExternalLink />
+													</a>
+												)}
 											</div>
 											<div className="footer">{project.name}</div>
 										</div>

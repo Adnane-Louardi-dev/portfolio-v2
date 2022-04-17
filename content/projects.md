@@ -3,9 +3,21 @@ projects:
   - name: "Pico"
     description: "Shorten your URLs. Now with more control!"
     platform: "web"
-    stack: "Express, MongoDB, React, NGINX, Mapbox, TypeScript"
+    stack: "Express, MongoDB, React, Mapbox, Chart.js TypeScript, NGINX, DigitalOcean"
     source: "https://github.com/sneakysensei/pico"
     demo: "https://pico.snehil.dev/"
+
+  - name: "Scheduulr"
+    description: "Schedule appointments with ease within your organisation while keeping track of attendeesʼ schedules."
+    platform: "web"
+    stack: "React, Ant Design, Express, Google Calendar API, Express, MongoDB, NGINX, AWS"
+    demo: "https://scheduulr.srmist.edu.in/"
+
+  - name: "IEEE Events"
+    description: "The registration portal for IEEESRM events with live event status. Data gets saved to google sheets upon form registration."
+    platform: "web"
+    stack: "React, Styled Components, Express, MongoDB, Google Sheets"
+    demo: "https://register.ieeesrmist.in/"
 
   - name: "Ideable"
     description: "A simple and intuitive note taking web app which helps you organize yourself, at the speed of thought."
