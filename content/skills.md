@@ -3,6 +3,9 @@ skills:
   - name: "React"
     image: "react"
 
+  - name: "React Native"
+    image: "react"
+
   - name: "JavaScript"
     image: "javascript"
 
