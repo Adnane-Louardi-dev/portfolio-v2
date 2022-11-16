@@ -7,18 +7,9 @@ const Footer = () => {
 		<StyledFooter>
 			Made with&nbsp;
 			<GiTechnoHeart className="heart" size={22} />
-			&nbsp;by Snehil
+			&nbsp;by Adnane Louardi
 			<br />
-			<span>
-				<a href="https://github.com/SneakySensei/portfolio-v2" target="_blank">
-					View Source
-				</a>
-				<br />
-				Design Inspired by{" "}
-				<a href="https://sarahdayan.dev/" target="_blank">
-					Sarah Dayan
-				</a>
-			</span>
+			@2023
 		</StyledFooter>
 	);
 };
